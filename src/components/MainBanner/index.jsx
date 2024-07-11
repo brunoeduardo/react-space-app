@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import mainBanner from "../../../public/images/banner.png"
 
 const BannerStyled = styled.div`
     align-items: center;
@@ -29,11 +28,11 @@ const BannerTitleStyled = styled.h1`
     z-index: 2;
 `
 
-const MainBanner = () => {
+const MainBanner = ({title, srcImage}) => {
     return(
-        <BannerStyled $backgroundImage={mainBanner}>
-            <BannerImageStyle src={mainBanner}></BannerImageStyle>
-            <BannerTitleStyled>The most complete gallery of space photos!</BannerTitleStyled>
+        <BannerStyled>
+            <BannerImageStyle src={srcImage}></BannerImageStyle>
+            <BannerTitleStyled>{title}</BannerTitleStyled>
         </BannerStyled>
     )
 }
