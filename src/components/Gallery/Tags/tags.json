@@ -1,12 +1,12 @@
 [
     {
         "id": 0,
-        "title": "All"
+        "title": "All",
+        "active": true
     },
     {
         "id": 1,
-        "title": "Stars",
-        "active": true
+        "title": "Stars"
     },
     {
         "id": 2,

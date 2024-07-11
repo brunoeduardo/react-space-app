@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import tagsList from "./tags.json"
+import { useState } from "react"
 
 const TagsContainer = styled.div`
     align-items: center;
@@ -23,25 +24,31 @@ const TagsContent = styled.section`
 const ButtonTag = styled.button`
     background: #D9D9D94D;
     border: 2px solid transparent;
+    border-color: ${props => props.$active ? '#7B78E5': '' } ;
     border-radius: 10px;
     cursor: pointer;
     color: #fff;
     font-size: 24px;
     line-height: 24px;
     padding:10px 8px;
-    text-align: center;
-
-    &:hover {
-      border-color: #7B78E5;
-    }
+    text-align: center;   
 `
 
-const Tags = () => {
+const Tags = ({filterList}) => {
+    const [listTags, setListTags] = useState(tagsList);
+    const filter = (value) => {
+        filterList(value);
+        setListTags(listTags.map(item => {
+            item.id === value.id ? item['active'] = true : item['active'] = false;
+            return item
+        }) )
+    }
+
     return(
         <TagsContainer>
             <Label>Search by tags:</Label>
             <TagsContent>
-                {tagsList.map(item => (<ButtonTag key={item.id} $active={item.active}>{item.title}</ButtonTag>))}
+                {listTags.map(item => (<ButtonTag key={item.id} $active={item.active} onClick={() => {filter(item)}}>{item.title}</ButtonTag>))}
             </TagsContent>
         </TagsContainer>
     )

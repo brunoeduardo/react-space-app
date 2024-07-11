@@ -11,6 +11,7 @@ const GalleryContainer = styled.div`
 `
 
 const GalleryContent = styled.section`
+flex: 1;
 `
 
 const ImagesContent = styled.section`
@@ -24,9 +25,9 @@ const ImagesContent = styled.section`
 `
 
 
-const Gallery = ({images, onMax,onToggleFavorite}) => {
+const Gallery = ({images, onMax,onToggleFavorite, filterList}) => {
     return(<>
-        <Tags/>
+        <Tags filterList={filterList}/>
         <GalleryContainer>
             <GalleryContent>
                 <Title>Browse the gallery</Title>

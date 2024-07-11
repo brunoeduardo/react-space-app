@@ -35,6 +35,7 @@ const GalleryContent = styled.section`
 const App = () => {
   const [imageGallery, setImageGallery] = useState(imagesList);
   const [imageSelected, setImageSelected] = useState(null)
+  
   const onToggleFavorite = (image) => {
     if(image.id === imageSelected?.id) {
       setImageSelected({...imageSelected, liked: !imageSelected.liked})
@@ -47,6 +48,14 @@ const App = () => {
     }))
   }
 
+  const filterList = (value) => {
+    if( value.id === 0) {
+      setImageGallery(imagesList)
+      return 
+    }
+    setImageGallery(imagesList.filter(item => item.tagId === value.id))
+  }
+
   return (
     <BackgroundGradient>
       <StyleDefault/>
@@ -56,7 +65,7 @@ const App = () => {
           <Aside/>
           <GalleryContent>
           <MainBanner title="The most complete gallery of space photos!" srcImage={mainBanner}/>
-          <Gallery images={imageGallery} imageSelected={imageSelected} onMax={setImageSelected} onToggleFavorite={onToggleFavorite}></Gallery>
+          <Gallery images={imageGallery} imageSelected={imageSelected} onMax={setImageSelected} onToggleFavorite={onToggleFavorite} filterList={filterList}></Gallery>
           </GalleryContent>
         </GalleryContainer>
       </MainContainer>
