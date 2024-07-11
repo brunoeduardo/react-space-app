@@ -1,0 +1,73 @@
+[
+  {
+    "title": "Large Magellanic Cloud",
+    "font": "Space app",
+    "path": "/images/gallery/image-1.png",
+    "id": "1",
+    "tagId": 2,
+    "liked": true
+  },
+  {
+    "title": "Galaxy",
+    "font": "Space app",
+    "path": "/images/gallery/image-2.png",
+    "id": "2",
+    "tagId": 2
+  },
+  {
+    "title": "Moon: waning quarter",
+    "font": "Space app",
+    "path": "/images/gallery/image-3.png",
+    "id": "3",
+    "tagId": 3
+  },
+  {
+    "title": "Andromeda Galaxy",
+    "font": "Space app",
+    "path": "/images/gallery/image-4.png",
+    "id": "4",
+    "tagId": 2
+  },
+  {
+    "title": "Pistol Star",
+    "font": "Space app",
+    "path": "/images/gallery/image-5.png",
+    "id": "5",
+    "tagId": 1
+  },
+  {
+    "title": "Illustration",
+    "font": "Space app",
+    "path": "/images/gallery/image-6.png",
+    "id": "6",
+    "tagId": 4
+  },
+  {
+    "title": "Andromeda Galaxy",
+    "font": "Space app",
+    "path": "/images/gallery/image-7.png",
+    "id": "7",
+    "tagId": 2
+  },
+  {
+    "title": "Illustration",
+    "font": "Space app",
+    "path": "/images/gallery/image-8.png",
+    "id": "8",
+    "tagId": 4
+  },
+  {
+    "title": "Starry sky",
+    "font": "Space app",
+    "path": "/images/gallery/image-9.png",
+    "id": "9",
+    "tagId": 1
+  },
+  {
+    "title": "Illustration",
+    "font": "Space app",
+    "path": "/images/gallery/image-10.png",
+    "id": "10",
+    "tagId": 1
+  }
+]

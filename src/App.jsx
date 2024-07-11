@@ -5,6 +5,9 @@ import Aside from "./components/Aside"
 import MainBanner from "./components/MainBanner"
 import Gallery from "./components/Gallery"
 import mainBanner from "../public/images/banner.png"
+import imagesList from "./images-list.json"
+import { useState } from "react"
+import ModalZoom from "./components/ModalZoom"
 
 const BackgroundGradient = styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -29,8 +32,9 @@ const GalleryContent = styled.section`
   flex-grow: 1;
 `
 
-function App() {
-
+const App = () => {
+  const [imageGallery] = useState(imagesList);
+  const [imageSelected, setImageSelected] = useState(null)
   return (
     <BackgroundGradient>
       <StyleDefault/>
@@ -40,10 +44,11 @@ function App() {
           <Aside/>
           <GalleryContent>
           <MainBanner title="The most complete gallery of space photos!" srcImage={mainBanner}/>
-          <Gallery></Gallery>
+          <Gallery images={imageGallery} imageSelected={imageSelected} onMax={setImageSelected}></Gallery>
           </GalleryContent>
         </GalleryContainer>
       </MainContainer>
+      <ModalZoom imageSelected={imageSelected} setImageSelected={setImageSelected}/>
     </BackgroundGradient>
   )
 }
