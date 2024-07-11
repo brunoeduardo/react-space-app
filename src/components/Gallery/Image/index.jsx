@@ -49,20 +49,16 @@ const ActionContainer = styled.div`
     }
 `
 
-const onFavorite = () => {
-    console.log('Ok');
-}
-
-const Image = ({title, font, imageSrc, liked, onMax, showMaxIcon = true, imageObject}) => {
+const Image = ({onMax, showMaxIcon = true, imageObject, onToggleFavorite}) => {
     return(<FigureContent>
-        <ImageStyle src={imageSrc} alt={title} />
+        <ImageStyle src={imageObject.path} alt={imageObject.title} />
         <FigcaptionStyle>
             <div>
-                <h3>{title}</h3>
-                <h5>{font}</h5>
+                <h3>{imageObject.title}</h3>
+                <h5>{imageObject.font}</h5>
             </div>
             <ActionContainer>
-                {liked ? <AiFillHeart size={25} title="Like" color="#fff" onClick={() => onFavorite()} /> : <AiOutlineHeart title="Like" size={25} onClick={() => onFavorite()}/>}
+                {imageObject.liked ? <AiFillHeart size={25} title="Like" color="#fff" onClick={() => onToggleFavorite(imageObject)} /> : <AiOutlineHeart title="Like" size={25} onClick={() => onToggleFavorite(imageObject)}/>}
                 {showMaxIcon ? <LuMaximize2 size={25} onClick={() => onMax(imageObject)} title="Maximize image"/> : ''}
             </ActionContainer>
         </FigcaptionStyle>

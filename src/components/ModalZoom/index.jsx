@@ -32,12 +32,12 @@ const DiologButton = styled.button`
     top: 30px;
 `
 
-const ModalZoom = ({imageSelected, setImageSelected}) => {
+const ModalZoom = ({imageSelected, setImageSelected, onToggleFavorite}) => {
     return(<>
     {imageSelected && 
         <Overlay> 
             <DialogStyled open={!!imageSelected}>
-                <Image showMaxIcon={false} imageSrc={imageSelected.path} id={imageSelected.id} title={imageSelected.title} font={imageSelected.font}></Image>
+                <Image showMaxIcon={false} imageObject={imageSelected} onToggleFavorite={onToggleFavorite}></Image>
                 <form method="dialog">
                     <DiologButton onClick={() => setImageSelected(null)}>
                         <IoClose size={25} title="close"/>

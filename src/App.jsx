@@ -33,8 +33,20 @@ const GalleryContent = styled.section`
 `
 
 const App = () => {
-  const [imageGallery] = useState(imagesList);
+  const [imageGallery, setImageGallery] = useState(imagesList);
   const [imageSelected, setImageSelected] = useState(null)
+  const onToggleFavorite = (image) => {
+    if(image.id === imageSelected?.id) {
+      setImageSelected({...imageSelected, liked: !imageSelected.liked})
+    }
+    setImageGallery(imageGallery.map(item => {
+      return {
+        ...item,
+        liked: item.id === image.id ? !item.liked : item.liked
+      }
+    }))
+  }
+
   return (
     <BackgroundGradient>
       <StyleDefault/>
@@ -44,11 +56,11 @@ const App = () => {
           <Aside/>
           <GalleryContent>
           <MainBanner title="The most complete gallery of space photos!" srcImage={mainBanner}/>
-          <Gallery images={imageGallery} imageSelected={imageSelected} onMax={setImageSelected}></Gallery>
+          <Gallery images={imageGallery} imageSelected={imageSelected} onMax={setImageSelected} onToggleFavorite={onToggleFavorite}></Gallery>
           </GalleryContent>
         </GalleryContainer>
       </MainContainer>
-      <ModalZoom imageSelected={imageSelected} setImageSelected={setImageSelected}/>
+      <ModalZoom imageSelected={imageSelected} setImageSelected={setImageSelected} onToggleFavorite={onToggleFavorite}/>
     </BackgroundGradient>
   )
 }

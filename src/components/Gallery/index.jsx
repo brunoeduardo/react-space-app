@@ -24,14 +24,14 @@ const ImagesContent = styled.section`
 `
 
 
-const Gallery = ({images, onMax}) => {
+const Gallery = ({images, onMax,onToggleFavorite}) => {
     return(<>
         <Tags/>
         <GalleryContainer>
             <GalleryContent>
                 <Title>Browse the gallery</Title>
                 <ImagesContent>
-                    {images.map(image => (<Image key={image.id} imageObject={image} id={image.id} title={image.title} font={image.font} imageSrc={image.path} liked={image.liked} onMax={onMax}></Image>))}
+                    {images.map(image => (<Image key={image.id} imageObject={image} onMax={onMax} onToggleFavorite={onToggleFavorite}></Image>))}
                 </ImagesContent>
             </GalleryContent>
             <Popular/>
