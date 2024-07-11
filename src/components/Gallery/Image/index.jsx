@@ -5,7 +5,6 @@ import { LuMaximize2 } from "react-icons/lu";
 
 const FigureContent = styled.figure`
     margin:0; 
-    //max-width: 448px;
     padding: 0;
     width: 100%;
 

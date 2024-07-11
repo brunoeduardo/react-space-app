@@ -6,11 +6,11 @@ import Image from "./Image"
 
 const GalleryContainer = styled.div`
     display: flex;
+    gap: 20px;
 
 `
 
 const GalleryContent = styled.section`
-    flex-grow: 1;
 `
 
 const ImagesContent = styled.section`
@@ -19,7 +19,7 @@ const ImagesContent = styled.section`
     gap: 24px;
 
     figure {
-        max-width: 517px
+        max-width: 450px
     }
 `
 
