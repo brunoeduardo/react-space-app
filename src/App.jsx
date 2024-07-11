@@ -32,6 +32,16 @@ const GalleryContent = styled.section`
   flex-grow: 1;
 `
 
+const FooterStyled = styled.footer`
+  background: #04244F;
+  color: #fff;
+  height: 80px;
+  padding-right: 15px;
+  padding-top:40px;
+  text-align: right;
+  width: 100%;
+`
+
 const App = () => {
   const [imageGallery, setImageGallery] = useState(imagesList);
   const [imageSelected, setImageSelected] = useState(null)
@@ -56,7 +66,7 @@ const App = () => {
     setImageGallery(imagesList.filter(item => item.tagId === value.id))
   }
 
-  return (
+  return (<>
     <BackgroundGradient>
       <StyleDefault/>
       <MainContainer>
@@ -71,6 +81,8 @@ const App = () => {
       </MainContainer>
       <ModalZoom imageSelected={imageSelected} setImageSelected={setImageSelected} onToggleFavorite={onToggleFavorite}/>
     </BackgroundGradient>
+    <FooterStyled>Desenvolvido por Bruno</FooterStyled>
+  </>
   )
 }
 
