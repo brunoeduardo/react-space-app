@@ -34,10 +34,10 @@ const ButtonTag = styled.button`
     text-align: center;   
 `
 
-const Tags = ({filterList}) => {
+const Tags = ({tagFilter}) => {
     const [listTags, setListTags] = useState(tagsList);
     const filter = (value) => {
-        filterList(value);
+        tagFilter(value);
         setListTags(listTags.map(item => {
             item.id === value.id ? item['active'] = true : item['active'] = false;
             return item

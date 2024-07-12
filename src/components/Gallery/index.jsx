@@ -25,9 +25,9 @@ const ImagesContent = styled.section`
 `
 
 
-const Gallery = ({images, onMax,onToggleFavorite, filterList}) => {
+const Gallery = ({images, onMax,onToggleFavorite, tagFilter}) => {
     return(<>
-        <Tags filterList={filterList}/>
+        <Tags tagFilter={tagFilter}/>
         <GalleryContainer>
             <GalleryContent>
                 <Title>Browse the gallery</Title>

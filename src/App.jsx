@@ -6,7 +6,7 @@ import MainBanner from "./components/MainBanner"
 import Gallery from "./components/Gallery"
 import mainBanner from "../public/images/banner.png"
 import imagesList from "./images-list.json"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ModalZoom from "./components/ModalZoom"
 
 const BackgroundGradient = styled.div`
@@ -43,9 +43,12 @@ const FooterStyled = styled.footer`
 `
 
 const App = () => {
-  const [imageGallery, setImageGallery] = useState(imagesList);
-  const [imageSelected, setImageSelected] = useState(null)
-  
+  const [listImages, setListImages] = useState(imagesList)
+  const [imageGallery, setImageGallery] = useState(listImages);
+  const [imageSelected, setImageSelected] = useState(null);
+  const [filterText, setFilterText] = useState('');
+  const [tagFilter, setTagFilter] = useState(0)
+
   const onToggleFavorite = (image) => {
     if(image.id === imageSelected?.id) {
       setImageSelected({...imageSelected, liked: !imageSelected.liked})
@@ -55,27 +58,36 @@ const App = () => {
         ...item,
         liked: item.id === image.id ? !item.liked : item.liked
       }
-    }))
+    }))   
+    setListImages(listImages.map(item => {
+      return {
+        ...item,
+        liked: item.id === image.id ? !item.liked : item.liked
+      }
+    }))  
   }
 
-  const filterList = (value) => {
-    if( value.id === 0) {
-      setImageGallery(imagesList)
-      return 
-    }
-    setImageGallery(imagesList.filter(item => item.tagId === value.id))
-  }
+  useEffect(() => {
+    const imgFiltered = listImages.filter(img => {
+      const filterByTag = !tagFilter.id || img.tagId === tagFilter.id;
+      const filterByText = !filterText || img.title.toLowerCase().includes(filterText.toLowerCase())
+      return filterByTag && filterByText
+    })
+
+    setImageGallery(imgFiltered)
+  }, [filterText, tagFilter])
+
 
   return (<>
     <BackgroundGradient>
       <StyleDefault/>
       <MainContainer>
-        <Header/>
+        <Header onChange={setFilterText}/>
         <GalleryContainer>
           <Aside/>
           <GalleryContent>
           <MainBanner title="The most complete gallery of space photos!" srcImage={mainBanner}/>
-          <Gallery images={imageGallery} imageSelected={imageSelected} onMax={setImageSelected} onToggleFavorite={onToggleFavorite} filterList={filterList}></Gallery>
+          <Gallery images={imageGallery} imageSelected={imageSelected} onMax={setImageSelected} onToggleFavorite={onToggleFavorite} tagFilter={setTagFilter}></Gallery>
           </GalleryContent>
         </GalleryContainer>
       </MainContainer>

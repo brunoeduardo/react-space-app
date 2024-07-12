@@ -12,10 +12,10 @@ const HeaderStyled = styled.header`
     }
 `
 
-const Header = () => {
+const Header = ({onChange}) => {
     return (<HeaderStyled>
         <img src="./images/logo.png" alt="Logo" />
-        <InputText/>
+        <InputText onChange={onChange}/>
     </HeaderStyled>)
 }
 

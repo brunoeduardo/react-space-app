@@ -29,10 +29,10 @@ const SearchIcon = styled.img`
     width: 38px;
 `
 
-const InputText = (props) => {
+const InputText = ({onChange}) => {
     return(
         <InputContainerStyle>
-            <InputTextStyle placeholder="What are you looking for?" {...props}/>
+            <InputTextStyle placeholder="What are you looking for?" onChange={event => onChange(event.target.value)}/>
             <SearchIcon src={searchIcon} alt="Icon search"/>
         </InputContainerStyle>
     )
