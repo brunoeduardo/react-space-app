@@ -2,10 +2,10 @@
 
 Project using React + Vite and styled-components. I created this project based on a course where features like filtering and favoriting images were applied using pure JavaScript.
 
-#React + Vite
-#JavaScript
-#Styled-components
-#Vercel deployment
+#React + Vite\
+#JavaScript\
+#Styled-components\
+#Vercel deployment\
 
 [Project link](https://react-space-app-phi.vercel.app/)
 
