@@ -1,6 +1,6 @@
-# Creating a gallery app with React + Vite
+# Gallery app with React + Vite
 
-To study the use of React + Vite, I created this project based on a course in React, pure JavaScript and Styled-components.
+Project using React + Vite and styled-components. I created this project based on a course where features like filtering and favoriting images were applied using pure JavaScript.
 
 #React + Vite
 #JavaScript
