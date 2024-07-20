@@ -5,7 +5,7 @@ Project using React + Vite and styled-components. I created this project based o
 #React + Vite\
 #JavaScript\
 #Styled-components\
-#Vercel deployment\
+#Application deployment(Vercel)
 
 [Project link](https://react-space-app-phi.vercel.app/)
 
